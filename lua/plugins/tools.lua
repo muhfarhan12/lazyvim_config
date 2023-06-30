@@ -121,4 +121,27 @@ return {
   --     require("mdeval").setup()
   --   end,
   -- },
+  -- vim-matchup alternative native matchit and matchparent
+  {
+    "andymass/vim-matchup",
+    event = "BufReadPost",
+    config = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
+  {
+    "ziontee113/icon-picker.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      { "<C-i>", "<cmd>IconPickerInsert<cr>", mode = "i" },
+    },
+    dependencies = {
+      "stevearc/dressing.nvim",
+    },
+    opts = {
+      disable_legacy_commands = true,
+    },
+  },
 }

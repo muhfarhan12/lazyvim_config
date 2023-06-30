@@ -2,10 +2,11 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      {
-        "windwp/nvim-autopairs",
-        opts = {},
-      },
+      -- {
+      --   "windwp/nvim-autopairs",
+      --   opts = {},
+      -- },
+      { "hrsh7th/cmp-emoji" },
     },
     opts = function(_, opts)
       local has_words_before = function()
@@ -17,10 +18,10 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
-      opts.confirm_opts = {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
-      }
+      -- opts.confirm_opts = {
+      --   behavior = cmp.ConfirmBehavior.Replace,
+      --   select = false,
+      -- }
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<CR>"] = cmp.mapping.confirm({
@@ -51,19 +52,20 @@ return {
         end, { "i", "s" }),
       })
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
-        { name = "norg" },
+        { name = "neorg" },
+        { name = "emoji" },
       }))
       opts.preselect = cmp.PreselectMode.None
       opts.completion = {
         completeopt = "noselect",
       }
     end,
-    config = function(_, opts)
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-      cmp.setup(opts)
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
+    -- config = function(_, opts)
+    --   local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    --   local cmp = require("cmp")
+    --   cmp.setup(opts)
+    --   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    -- end,
   },
   {
     "L3MON4D3/LuaSnip",
