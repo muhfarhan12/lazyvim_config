@@ -1,67 +1,4 @@
 return {
-  --neorg
-  {
-    "nvim-neorg/neorg",
-    -- enabled = false,
-    build = ":Neorg sync-parsers",
-    ft = { "norg", "neorg" },
-    cmd = { "Neorg" },
-    opts = {
-      load = {
-        ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.concealer"] = {}, -- Adds pretty icons to your documents
-        ["core.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/neorg/notes",
-              journal = "~/neorg/journal",
-              belajar = "~/neorg/belajar",
-            },
-          },
-        },
-        ["core.completion"] = {
-          config = {
-            engine = "nvim-cmp",
-          },
-        },
-        ["core.integrations.nvim-cmp"] = {},
-        ["core.journal"] = {
-          config = {
-            workspace = "journal",
-            journal_folder = "",
-          },
-        },
-      },
-    },
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      -- { "jubnzv/mdeval.nvim" },
-    },
-  },
-  --code_runner
-  {
-    "CRAG666/code_runner.nvim",
-    cmd = "RunCode",
-    dependencies = "nvim-lua/plenary.nvim",
-    keys = {
-      { "<leader>cc", "<cmd>RunCode<cr>", desc = "Run Code" },
-    },
-    opts = {
-      mode = "float",
-      focus = true,
-      startinsert = true,
-      float = {
-        close_key = "<ESC>",
-        border = "single",
-      },
-      filetype = {
-        java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        python = "python3 -u",
-        typescript = "deno run",
-        rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-      },
-    },
-  },
 
   --better escape
   {
@@ -110,7 +47,14 @@ return {
     "m4xshen/smartcolumn.nvim",
     event = { "BufNewFile", "BufReadPost" },
     opts = {
-      disabled_filetypes = { "NvimTree", "Lazy", "mason", "help", "neo-tree", "alpha" },
+      disabled_filetypes = {
+        "NvimTree",
+        "Lazy",
+        "mason",
+        "help",
+        "neo-tree",
+        "alpha",
+      },
     },
   },
   --code evaluation
