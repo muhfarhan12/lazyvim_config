@@ -2,7 +2,7 @@ return {
   "nvim-neorg/neorg",
   -- enabled = false,
   build = ":Neorg sync-parsers",
-  ft = { "norg", "neorg" },
+  ft = "norg",
   cmd = { "Neorg" },
   opts = {
     load = {
@@ -35,6 +35,5 @@ return {
   },
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    -- { "jubnzv/mdeval.nvim" },
   },
 }
